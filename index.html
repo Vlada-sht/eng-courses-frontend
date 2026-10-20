@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Курси англійської мови</title>
+</head>
+<body>
+    <h1>Список курсів (Frontend)</h1>
+    <div id="courses">Завантаження...</div>
+    <script>
+        fetch('http://127.0.0.1:8000/api/courses/')
+            .then(res => res.json())
+            .then(data => { document.getElementById('courses').innerText = JSON.stringify(data, null, 2); })
+            .catch(err => { document.getElementById('courses').innerText = 'Помилка. Запустіть бекенд!'; });
+    </script>
+</body>
+</html>
